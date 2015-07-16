@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cubeDemo</title><style>
+html,body{
+	color:#eee;
+	padding:20px;
+	text-align: center;
+	font-family: microsoft yahei;
+}
+.container{
+	margin-top: 10%;
+}
+.container .tabs{
+	margin-bottom: 100px;
+}
+.container .cube{
+	perspective:800px;
+	width:250px;
+	height:250px;
+	text-align: center;
+	display: inline-block;
+}
+.container .cubeBox{
+	display: inline-block;
+	transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	text-align: center;
+	position: relative;
+	width:100%;
+	height:100%;
+	transform-style:preserve-3d;
+	transform:rotateX(-15deg) rotateY(15deg);
+}
+.container .face{
+	overflow: hidden;
+	position: absolute;
+	border:1px solid #000;
+	background: #fff;
+	box-shadow: inset 0 0 60px rgba(0,0,0,0.1),0 0 50px rgba(0,0,0,0.3);
+	opacity: 0.8;	
+}
+.container .face_front{
+	width:250px;
+	height:250px;
+	transform:translate3d(0,0,125px);
+	background: url(images/1.jpg);
+	background-size: auto 100%;
+}
+.container .face_top{
+	width:250px;
+	height:250px;
+	transform:rotateX(90deg) translate3d(0,0,125px) ;
+	background: url(images/2.jpg);
+	background-size: auto 100%;
+}
+.container .face_bottom{
+	width:250px;
+	height:250px;
+	transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	background: url(images/3.jpg);
+	background-size: auto 100%;
+}
+.container .face_left{
+	width:250px;
+	height:250px;
+	transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	background: url(images/4.jpg);
+	background-size: auto 100%;
+}
+.container .face_right{
+	width:250px;
+	height:250px;
+	transform:rotateY(90deg) translate3d(0,0,125px) ;
+	background: url(images/5.jpg);
+	background-size: auto 100%;
+}
+.container .face_back{
+	width:250px;
+	height:250px;
+	transform:rotateY(180deg) translate3d(0,0,125px) ;
+	background: url(images/6.jpg);
+	background-size: auto 100%;
+}
+#topTab:checked~ .cubeBox{
+	transform:rotateY(30deg);
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<section class="tabs" id="tab">
+			<input type="radio" checked name="select-tab">
+			<input type="radio"  name="select-tab">
+			<input type="radio"  name="select-tab">
+			<input type="radio"  name="select-tab">
+			<input type="radio"  name="select-tab">
+			<input type="radio"  name="select-tab">
+		</section>
+		<section class="cube">
+			<div class="cubeBox" id="box">
+				<div class="face face_front"></div>
+				<div class="face face_top"></div>
+				<div class="face face_bottom"></div>
+				<div class="face face_left"></div>
+				<div class="face face_right"></div>
+				<div class="face face_back"></div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
+<script>
+'use strict';
+
+(function(){
+	var tab = document.getElementById('tab');
+	var buttons = tab.getElementsByTagName('input');
+	var cubeBox = document.getElementById('box');
+	buttons[0].addEventListener('click',function(){
+		cubeBox.style.transform = 'rotateY(-180deg)';
+	},false);	
+	buttons[1].addEventListener('click',function(){
+		cubeBox.style.transform = 'rotateY(90deg)';
+	},false);	
+	buttons[2].addEventListener('click',function(){
+		cubeBox.style.transform = 'rotateY(-90deg)';
+	},false);
+	buttons[3].addEventListener('click',function(){
+		cubeBox.style.transform = 'rotateX(90deg)';
+	},false);
+	buttons[4].addEventListener('click',function(){
+		cubeBox.style.transform = 'rotateX(-90deg)';
+	},false);
+	buttons[5].addEventListener('click',function(){
+		cubeBox.style.transform = 'rotateY(180deg)';
+	},false);
+})();
+</script>
