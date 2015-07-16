@@ -14,8 +14,11 @@ h1{
 	-webkit-transition:1s all ease;
 	transition:1s all ease;
 	-moz-transition:1s all ease;
+<<<<<<< HEAD
 	-ms-transition:1s all ease;
 	-o-transition:1s all ease;
+=======
+>>>>>>> drag
 }
 h1:hover{
 	color:#399;
@@ -182,8 +185,11 @@ h1:hover{
 	var disY = 0;
 	buttons[0].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(-360deg)';
+<<<<<<< HEAD
 		cubeBox.style.webkitTransform = 'rotateY(-360deg)';
 		cubeBox.style.mozTransform = 'rotateY(-360deg)';
+=======
+>>>>>>> drag
 	},false);	
 	buttons[1].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(90deg)';
@@ -249,5 +255,46 @@ h1:hover{
 		return false;
 	},false);
 
+<<<<<<< HEAD
+=======
+	function getPos(obj){
+		var left = 0;
+		var top = 0;
+		while(obj){
+			left += obj.offsetLeft;
+			top += obj.offsetTop;
+			obj = obj.offsetParent;
+		}
+		return {x:left,y:top}
+	}
+
+	dragBox.style.position = "absolute";
+	dragBox.style.left = '50%';
+	dragBox.style.top = '50%';
+	dragBox.style.marginLeft = '-125px';
+	dragBox.style.marginTop = '-125px';
+
+	dragBox.addEventListener('mousedown',function(ev){
+		var event = ev||event;
+		disX = event.clientX-getPos(dragBox).x;
+		disY = event.clientY-getPos(dragBox).y;
+		// alert(disY)
+		document.addEventListener('mousemove',move,false);
+		document.addEventListener('mouseup',up,false);
+		function move(ev){
+			var event = ev||event;
+			dragBox.style.left = event.clientX-disX+'px';
+			dragBox.style.top = event.clientY-disY+'px';
+		}
+		function up(){
+			document.removeEventListener('mousemove',move,false);
+			document.removeEventListener('mouseup',up,false);
+			dragBox.releaseCapture && dragBox.releaseCapture();
+		}
+		dragBox.setCapture&&dragBox.setCapture();
+		return false;
+	},false);
+
+>>>>>>> drag
 })();
 </script>
