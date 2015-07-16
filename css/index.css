@@ -1,0 +1,93 @@
+/*
+* 立方体css
+* author:diandian;
+* Date:2015-07-16;
+ */
+html,body{
+	color:#eee;
+	padding:20px;
+	text-align: center;
+	font-family: microsoft yahei;
+}
+.container{
+	margin-top: 10%;
+}
+.container .tabs{
+	margin-bottom: 100px;
+}
+.container .cube{
+	perspective:800px;
+	width:250px;
+	height:250px;
+	text-align: center;
+	display: inline-block;
+}
+.container .cubeBox{
+	display: inline-block;
+	transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	text-align: center;
+	position: relative;
+	width:100%;
+	height:100%;
+	transform-style:preserve-3d;
+	transform:rotateX(-15deg) rotateY(15deg);
+}
+.container .face{
+	overflow: hidden;
+	position: absolute;
+	border:1px solid #000;
+	background: #fff;
+	box-shadow: inset 0 0 60px rgba(0,0,0,0.1),0 0 50px rgba(0,0,0,0.3);
+	opacity: 0.8;	
+}
+.container .face_front{
+	width:250px;
+	height:250px;
+	transform:translate3d(0,0,125px);
+	background: url(../images/1.jpg);
+	background-size: auto 100%;
+}
+.container .face_top{
+	width:250px;
+	height:250px;
+	transform:rotateX(90deg) translate3d(0,0,125px) ;
+	background: url(../images/2.jpg);
+	background-size: auto 100%;
+}
+.container .face_bottom{
+	width:250px;
+	height:250px;
+	transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	background: url(../images/3.jpg);
+	background-size: auto 100%;
+}
+.container .face_left{
+	width:250px;
+	height:250px;
+	transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	background: url(../images/4.jpg);
+	background-size: auto 100%;
+}
+.container .face_right{
+	width:250px;
+	height:250px;
+	transform:rotateY(90deg) translate3d(0,0,125px) ;
+	background: url(../images/5.jpg);
+	background-size: auto 100%;
+}
+.container .face_back{
+	width:250px;
+	height:250px;
+	transform:rotateY(180deg) translate3d(0,0,125px) ;
+	background: url(../images/6.jpg);
+	background-size: auto 100%;
+}
+#topTab:checked~ .cubeBox{
+	transform:rotateY(30deg);
+}
+
+
+
+
+
+
