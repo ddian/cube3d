@@ -3,11 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>cubeDemo</title><style>
+*{margin:0;padding:0;}
 html,body{
 	color:#eee;
-	padding:20px;
 	text-align: center;
 	font-family: microsoft yahei;
+}
+h1{
+	color:#f99;
+	-webkit-transition:1s all ease;
+	transition:1s all ease;
+	-moz-transition:1s all ease;
+}
+h1:hover{
+	color:#399;
+}
+.header{
+	background:#ccc;
+	padding:20px;
+}
+.github{
+	line-height: 50px;
+}
+.github:hover{
+	color:#399;
 }
 .container{
 	margin-top: 10%;
@@ -25,12 +44,24 @@ html,body{
 .container .cubeBox{
 	display: inline-block;
 	transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-webkit-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-moz-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-ms-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-o-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	text-align: center;
 	position: relative;
 	width:100%;
 	height:100%;
 	transform-style:preserve-3d;
+	-webkit-transform-style:preserve-3d;
+	-moz-transform-style:preserve-3d;
+	-ms-transform-style:preserve-3d;
+	-o-transform-style:preserve-3d;
 	transform:rotateX(-15deg) rotateY(15deg);
+	-webkit-transform:rotateX(-15deg) rotateY(15deg);
+	-o-transform:rotateX(-15deg) rotateY(15deg);
+	-ms-transform:rotateX(-15deg) rotateY(15deg);
+	-moz-transform:rotateX(-15deg) rotateY(15deg);
 }
 .container .face{
 	overflow: hidden;
@@ -44,6 +75,10 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:translate3d(0,0,125px);
+	-webkit-transform:translate3d(0,0,125px);
+	-ms-transform:translate3d(0,0,125px);
+	-moz-transform:translate3d(0,0,125px);
+	-o-transform:translate3d(0,0,125px);
 	background: url(images/1.jpg);
 	background-size: auto 100%;
 }
@@ -51,6 +86,10 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-webkit-transform:rotateX(90deg) translate3d(0,0,125px) ;
 	background: url(images/2.jpg);
 	background-size: auto 100%;
 }
@@ -58,6 +97,10 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-webkit-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateX(-90deg) translate3d(0,0,125px) ;
 	background: url(images/3.jpg);
 	background-size: auto 100%;
 }
@@ -65,6 +108,10 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-webkit-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateY(-90deg) translate3d(0,0,125px) ;
 	background: url(images/4.jpg);
 	background-size: auto 100%;
 }
@@ -72,6 +119,10 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-webkit-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateY(90deg) translate3d(0,0,125px) ;
 	background: url(images/5.jpg);
 	background-size: auto 100%;
 }
@@ -79,16 +130,26 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-webkit-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-o-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateY(180deg) translate3d(0,0,125px) ;
 	background: url(images/6.jpg);
 	background-size: auto 100%;
 }
 #topTab:checked~ .cubeBox{
 	transform:rotateY(30deg);
+	-webkit-transform:rotateY(30deg);
+	-moz-transform:rotateY(30deg);
+	-ms-transform:rotateY(30deg);
+	-o-transform:rotateY(30deg);
 }
 </style>
 </head>
 <body>
-	<div class="container">
+	<div class="header"><h1>致青春</h1></div>
+	<a href="https://github.com/ddian/cube3d" class="github">View on github</a>
+	<div class="container" id="dragBox">
 		<section class="tabs" id="tab">
 			<input type="radio" checked name="select-tab">
 			<input type="radio"  name="select-tab">
@@ -117,8 +178,11 @@ html,body{
 	var tab = document.getElementById('tab');
 	var buttons = tab.getElementsByTagName('input');
 	var cubeBox = document.getElementById('box');
+	var dragBox = document.getElementById('dragBox');
+	var disX = 0;
+	var disY = 0;
 	buttons[0].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateY(-180deg)';
+		cubeBox.style.transform = 'rotateY(-360deg)';
 	},false);	
 	buttons[1].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(90deg)';
@@ -135,5 +199,44 @@ html,body{
 	buttons[5].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(180deg)';
 	},false);
+
+	function getPos(obj){
+		var left = 0;
+		var top = 0;
+		while(obj){
+			left += obj.offsetLeft;
+			top += obj.offsetTop;
+			obj = obj.offsetParent;
+		}
+		return {x:left,y:top}
+	}
+
+	dragBox.style.position = "absolute";
+	dragBox.style.left = '50%';
+	dragBox.style.top = '50%';
+	dragBox.style.marginLeft = '-125px';
+	dragBox.style.marginTop = '-125px';
+
+	dragBox.addEventListener('mousedown',function(ev){
+		var event = ev||event;
+		disX = event.clientX-getPos(dragBox).x;
+		disY = event.clientY-getPos(dragBox).y;
+		// alert(disY)
+		document.addEventListener('mousemove',move,false);
+		document.addEventListener('mouseup',up,false);
+		function move(ev){
+			var event = ev||event;
+			dragBox.style.left = event.clientX-disX+'px';
+			dragBox.style.top = event.clientY-disY+'px';
+		}
+		function up(){
+			document.removeEventListener('mousemove',move,false);
+			document.removeEventListener('mouseup',up,false);
+			dragBox.releaseCapture && dragBox.releaseCapture();
+		}
+		dragBox.setCapture&&dragBox.setCapture();
+		return false;
+	},false);
+
 })();
 </script>
