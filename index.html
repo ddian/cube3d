@@ -7,7 +7,9 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	<div class="container">
+	<div class="header"><h1>致青春</h1></div>
+	<a href="https://github.com/ddian/cube3d" class="github">View on github</a>
+	<div class="container" id="dragBox">
 		<section class="tabs" id="tab">
 			<input type="radio" checked name="select-tab">
 			<input type="radio"  name="select-tab">
@@ -36,23 +38,77 @@
 	var tab = document.getElementById('tab');
 	var buttons = tab.getElementsByTagName('input');
 	var cubeBox = document.getElementById('box');
+	var dragBox = document.getElementById('dragBox');
+	var disX = 0;
+	var disY = 0;
 	buttons[0].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateY(-180deg)';
+		cubeBox.style.transform = 'rotateY(-360deg)';
+		cubeBox.style.webkitTransform = 'rotateY(-360deg)';
+		cubeBox.style.mozTransform = 'rotateY(-360deg)';
 	},false);	
 	buttons[1].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(90deg)';
+		cubeBox.style.webkitTransform = 'rotateY(90deg)';
+		cubeBox.style.mozTransform = 'rotateY(90deg)';
 	},false);	
 	buttons[2].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(-90deg)';
+		cubeBox.style.webkitTransform = 'rotateY(-90deg)';
+		cubeBox.style.mozTransform = 'rotateY(-90deg)';
 	},false);
 	buttons[3].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateX(90deg)';
+		cubeBox.style.webkitTransform = 'rotateX(90deg)';
+		cubeBox.style.mozTransform = 'rotateX(90deg)';
 	},false);
 	buttons[4].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateX(-90deg)';
+		cubeBox.style.webkitTransform = 'rotateX(-90deg)';
+		cubeBox.style.mozTransform = 'rotateX(-90deg)';
 	},false);
 	buttons[5].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(180deg)';
+		cubeBox.style.webkitTransform = 'rotateY(180deg)';
+		cubeBox.style.mozTransform = 'rotateY(180deg)';
 	},false);
+
+	function getPos(obj){
+		var left = 0;
+		var top = 0;
+		while(obj){
+			left += obj.offsetLeft;
+			top += obj.offsetTop;
+			obj = obj.offsetParent;
+		}
+		return {x:left,y:top}
+	}
+
+	dragBox.style.position = "absolute";
+	dragBox.style.left = '50%';
+	dragBox.style.top = '50%';
+	dragBox.style.marginLeft = '-125px';
+	dragBox.style.marginTop = '-125px';
+
+	dragBox.addEventListener('mousedown',function(ev){
+		var event = ev||event;
+		disX = event.clientX-getPos(dragBox).x;
+		disY = event.clientY-getPos(dragBox).y;
+		// alert(disY)
+		document.addEventListener('mousemove',move,false);
+		document.addEventListener('mouseup',up,false);
+		function move(ev){
+			var event = ev||event;
+			dragBox.style.left = event.clientX-disX+'px';
+			dragBox.style.top = event.clientY-disY+'px';
+		}
+		function up(){
+			document.removeEventListener('mousemove',move,false);
+			document.removeEventListener('mouseup',up,false);
+			dragBox.releaseCapture && dragBox.releaseCapture();
+		}
+		dragBox.setCapture&&dragBox.setCapture();
+		return false;
+	},false);
+
 })();
 </script>
