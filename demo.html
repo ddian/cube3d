@@ -14,6 +14,8 @@ h1{
 	-webkit-transition:1s all ease;
 	transition:1s all ease;
 	-moz-transition:1s all ease;
+	-ms-transition:1s all ease;
+	-o-transition:1s all ease;
 }
 h1:hover{
 	color:#399;
@@ -36,6 +38,10 @@ h1:hover{
 }
 .container .cube{
 	perspective:800px;
+	-webkit-perspective:800px;
+	-moz-perspective:800px;
+	-ms-perspective:800px;
+	-o-perspective:800px;
 	width:250px;
 	height:250px;
 	text-align: center;
@@ -183,21 +189,33 @@ h1:hover{
 	var disY = 0;
 	buttons[0].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(-360deg)';
+		cubeBox.style.webkitTransform = 'rotateY(-360deg)';
+		cubeBox.style.mozTransform = 'rotateY(-360deg)';
 	},false);	
 	buttons[1].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(90deg)';
+		cubeBox.style.webkitTransform = 'rotateY(90deg)';
+		cubeBox.style.mozTransform = 'rotateY(90deg)';
 	},false);	
 	buttons[2].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(-90deg)';
+		cubeBox.style.webkitTransform = 'rotateY(-90deg)';
+		cubeBox.style.mozTransform = 'rotateY(-90deg)';
 	},false);
 	buttons[3].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateX(90deg)';
+		cubeBox.style.webkitTransform = 'rotateX(90deg)';
+		cubeBox.style.mozTransform = 'rotateX(90deg)';
 	},false);
 	buttons[4].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateX(-90deg)';
+		cubeBox.style.webkitTransform = 'rotateX(-90deg)';
+		cubeBox.style.mozTransform = 'rotateX(-90deg)';
 	},false);
 	buttons[5].addEventListener('click',function(){
 		cubeBox.style.transform = 'rotateY(180deg)';
+		cubeBox.style.webkitTransform = 'rotateY(180deg)';
+		cubeBox.style.mozTransform = 'rotateY(180deg)';
 	},false);
 
 	function getPos(obj){
