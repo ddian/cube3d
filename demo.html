@@ -31,7 +31,7 @@ h1:hover{
 	color:#399;
 }
 .container{
-	margin-top: 10%;
+	/*margin-top: 10%;*/
 }
 .container .tabs{
 	margin-bottom: 100px;
@@ -180,36 +180,20 @@ h1:hover{
 	var dragBox = document.getElementById('dragBox');
 	var disX = 0;
 	var disY = 0;
-	buttons[0].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateY(-360deg)';
-		cubeBox.style.webkitTransform = 'rotateY(-360deg)';
-		cubeBox.style.mozTransform = 'rotateY(-360deg)';
-	},false);	
-	buttons[1].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateY(90deg)';
-		cubeBox.style.webkitTransform = 'rotateY(90deg)';
-		cubeBox.style.mozTransform = 'rotateY(90deg)';
-	},false);	
-	buttons[2].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateY(-90deg)';
-		cubeBox.style.webkitTransform = 'rotateY(-90deg)';
-		cubeBox.style.mozTransform = 'rotateY(-90deg)';
-	},false);
-	buttons[3].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateX(90deg)';
-		cubeBox.style.webkitTransform = 'rotateX(90deg)';
-		cubeBox.style.mozTransform = 'rotateX(90deg)';
-	},false);
-	buttons[4].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateX(-90deg)';
-		cubeBox.style.webkitTransform = 'rotateX(-90deg)';
-		cubeBox.style.mozTransform = 'rotateX(-90deg)';
-	},false);
-	buttons[5].addEventListener('click',function(){
-		cubeBox.style.transform = 'rotateY(180deg)';
-		cubeBox.style.webkitTransform = 'rotateY(180deg)';
-		cubeBox.style.mozTransform = 'rotateY(180deg)';
-	},false);
+
+	var rotateArr = [{attr: 'rotateY(-360deg)'},{attr: 'rotateY(90deg)'},{attr: 'rotateY(-90deg)'},{attr: 'rotateX(90deg)'},{attr: 'rotateX(-90deg)'},{attr: 'rotateY(180deg)'}]
+
+	for (var i = 0; i < buttons.length; i++) {
+		(function (index){
+			buttons[i].addEventListener('click', function (){
+				cubeBox.style.transform = rotateArr[index]["attr"];
+				cubeBox.style.webkitTransform = rotateArr[index]["attr"];
+				cubeBox.style.mozTransform = rotateArr[index]["attr"];
+			} ,false);
+		})(i)
+	};
+
+	
 
 	function getPos(obj){
 		var left = 0;
@@ -230,9 +214,9 @@ h1:hover{
 
 	dragBox.addEventListener('mousedown',function(ev){
 		var event = ev||event;
-		disX = event.clientX-getPos(dragBox).x;
-		disY = event.clientY-getPos(dragBox).y;
-		// alert(disY)
+		disX = event.clientX-(getPos(dragBox).x + 125);
+		disY = event.clientY-(getPos(dragBox).y + 125);
+		
 		document.addEventListener('mousemove',move,false);
 		document.addEventListener('mouseup',up,false);
 		function move(ev){
@@ -248,6 +232,5 @@ h1:hover{
 		dragBox.setCapture&&dragBox.setCapture();
 		return false;
 	},false);
-
 })();
 </script>
