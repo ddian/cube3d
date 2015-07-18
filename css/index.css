@@ -3,11 +3,32 @@
 * author:diandian;
 * Date:2015-07-16;
  */
+*{margin:0;padding:0;}
 html,body{
 	color:#eee;
-	padding:20px;
 	text-align: center;
 	font-family: microsoft yahei;
+}
+h1{
+	color:#f99;
+	-webkit-transition:1s all ease;
+	transition:1s all ease;
+	-moz-transition:1s all ease;
+	-ms-transition:1s all ease;
+	-o-transition:1s all ease;
+}
+h1:hover{
+	color:#399;
+}
+.header{
+	background:#ccc;
+	padding:20px;
+}
+.github{
+	line-height: 50px;
+}
+.github:hover{
+	color:#399;
 }
 .container{
 	margin-top: 10%;
@@ -17,6 +38,10 @@ html,body{
 }
 .container .cube{
 	perspective:800px;
+	-webkit-perspective:800px;
+	-moz-perspective:800px;
+	-ms-perspective:800px;
+	-o-perspective:800px;
 	width:250px;
 	height:250px;
 	text-align: center;
@@ -25,12 +50,24 @@ html,body{
 .container .cubeBox{
 	display: inline-block;
 	transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-webkit-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-moz-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-ms-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-o-transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	text-align: center;
 	position: relative;
 	width:100%;
 	height:100%;
 	transform-style:preserve-3d;
+	-webkit-transform-style:preserve-3d;
+	-moz-transform-style:preserve-3d;
+	-ms-transform-style:preserve-3d;
+	-o-transform-style:preserve-3d;
 	transform:rotateX(-15deg) rotateY(15deg);
+	-webkit-transform:rotateX(-15deg) rotateY(15deg);
+	-o-transform:rotateX(-15deg) rotateY(15deg);
+	-ms-transform:rotateX(-15deg) rotateY(15deg);
+	-moz-transform:rotateX(-15deg) rotateY(15deg);
 }
 .container .face{
 	overflow: hidden;
@@ -44,48 +81,68 @@ html,body{
 	width:250px;
 	height:250px;
 	transform:translate3d(0,0,125px);
-	background: url(../images/1.jpg);
+	-webkit-transform:translate3d(0,0,125px);
+	-ms-transform:translate3d(0,0,125px);
+	-moz-transform:translate3d(0,0,125px);
+	-o-transform:translate3d(0,0,125px);
+	background: url(images/1.jpg);
 	background-size: auto 100%;
 }
 .container .face_top{
 	width:250px;
 	height:250px;
 	transform:rotateX(90deg) translate3d(0,0,125px) ;
-	background: url(../images/2.jpg);
+	-moz-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	-webkit-transform:rotateX(90deg) translate3d(0,0,125px) ;
+	background: url(images/2.jpg);
 	background-size: auto 100%;
 }
 .container .face_bottom{
 	width:250px;
 	height:250px;
 	transform:rotateX(-90deg) translate3d(0,0,125px) ;
-	background: url(../images/3.jpg);
+	-webkit-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateX(-90deg) translate3d(0,0,125px) ;
+	background: url(images/3.jpg);
 	background-size: auto 100%;
 }
 .container .face_left{
 	width:250px;
 	height:250px;
 	transform:rotateY(-90deg) translate3d(0,0,125px) ;
-	background: url(../images/4.jpg);
+	-webkit-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateY(-90deg) translate3d(0,0,125px) ;
+	background: url(images/4.jpg);
 	background-size: auto 100%;
 }
 .container .face_right{
 	width:250px;
 	height:250px;
 	transform:rotateY(90deg) translate3d(0,0,125px) ;
-	background: url(../images/5.jpg);
+	-webkit-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-o-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateY(90deg) translate3d(0,0,125px) ;
+	background: url(images/5.jpg);
 	background-size: auto 100%;
 }
 .container .face_back{
 	width:250px;
 	height:250px;
 	transform:rotateY(180deg) translate3d(0,0,125px) ;
-	background: url(../images/6.jpg);
+	-webkit-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-o-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-ms-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	-moz-transform:rotateY(180deg) translate3d(0,0,125px) ;
+	background: url(images/6.jpg);
 	background-size: auto 100%;
 }
-#topTab:checked~ .cubeBox{
-	transform:rotateY(30deg);
-}
-
 
 
 
