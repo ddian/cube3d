@@ -149,7 +149,7 @@ h1:hover{
 </head>
 <body>
 	<div class="header"><h1>致青春</h1></div>
-	<a href="https://github.com/ddian/cube3d" class="github">View on github</a>
+	<a href="https://github.com/ddian/cube3d/blob/gh-pages/demo.html" class="github">View on github</a>
 	<div class="container" id="dragBox">
 		<section class="tabs" id="tab">
 			<input type="radio" checked name="select-tab">
@@ -174,7 +174,6 @@ h1:hover{
 </html>
 <script>
 'use strict';
-
 (function(){
 	var tab = document.getElementById('tab');
 	var buttons = tab.getElementsByTagName('input');
@@ -183,7 +182,6 @@ h1:hover{
 	var disX = 0;
 	var disY = 0;
 	var rotateArr = [{attr: 'rotateY(-360deg)'},{attr: 'rotateY(90deg)'},{attr: 'rotateY(-90deg)'},{attr: 'rotateX(90deg)'},{attr: 'rotateX(-90deg)'},{attr: 'rotateY(180deg)'}]
-
 	for (var i = 0; i < buttons.length; i++) {
 		(function (index){
 			buttons[i].addEventListener('click', function (){
@@ -203,13 +201,11 @@ h1:hover{
 		}
 		return {x:left,y:top}
 	}
-
 	dragBox.style.position = "absolute";
 	dragBox.style.left = '50%';
 	dragBox.style.top = '50%';
 	dragBox.style.marginLeft = '-125px';
 	dragBox.style.marginTop = '-125px';
-
 	dragBox.addEventListener('mousedown',function(ev){
 		var event = ev||event;
 		disX = event.clientX-(getPos(dragBox).x + 125);
